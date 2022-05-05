@@ -48,16 +48,50 @@ then $n$ is $B$-power smooth if $p_i^{e_i} \leq B$ for all $i$.
 \begin{frame}
 \frametitle{Motivation 1-2 mins}
 % Explain why p-1 not being B power smooth for a fixed B is a problem
+\begin{itemize}
+\item Fix $B \in \mathbb{N}$. Let $p \in \mathbb{N}$ such that $p-1$ is not $B$- power smooth. 
+
+\item Recall, in Pollard $p-1$, this would be equivalent to not having $p-1 \vert m = \text{lcm}(1,2, \ldots, B)$; i.e. $a^m \not \equiv 1 \pmod{p}$.
+
+\item On the interval $[10^{15}, 10^{15} + 10000]$ 15 percent of the primes $p$ are such that $p-1$ is not $10^{6}$-power smooth. 
+
+\item The idea of ECM is to replace modular exponentiation on $\left(\mathbb{Z}/N\mathbb{Z}\right)^*$ by repeated addition of points on $E\left(\left(\mathbb{Z}/N\mathbb{Z}\right)^*\right)$
+
+\item Recall, by the Hasse-Weil bound we can reduce the size of our group by $2\cdot \sqrt{p}$. 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Elliptic Curve Factorization 2 mins}
-
+Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be positive integers.
+\begin{itemize}
+\item[1.] Compute $m =$ lcm$(1,2,\ldots, B)$. 
+\item[2.] Choose $a \in \mathbb{Z}/N\mathbb{Z}$ such that $4a^3 + 27 \in \left(\mathbb{Z}/N\mathbb{Z}\right)^*$. This forces $P = (0,1)$ to be a point on $y^2 = x^3 + ax +1$ over $\mathbb{Z}/N\mathbb{Z}$. 
+\item[3.] Try to compute $mP$. If at somepoint we cannot compute a sum of points some denominator $g$ is not coprime to $N$, then $gcd(g,N)$ is a nontrivial divisor of $N$.
+\end{itemize}
 \end{frame}
 
 \begin{frame}
 \frametitle{Analogy to Pollard p-1 1 min}
+\begin{table}[h!]
+  \begin{center}
+    \caption{Let $E$ be an elliptic curve, and $m = lcm(1,2,\ldots,B)$ for some $B$}
+    \label{tab:table1}
+    \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+      \textbf{Pollard $p-1$} & \textbf{ECM} \\
+      \hline
+      $\mathbb{Z}/N\mathbb{Z}$ & $E\left( \mathbb{Z}/N\mathbb{Z} \right)$\\ &\\
+      $g \in (\mathbb{Z}/N\mathbb{Z})^*$ & $(0,1)$ \\ & \\
+      $g^m \equiv 1 \pmod{N}$ & $mP \notin E\left( \mathbb{Z}/N\mathbb{Z} \right)$ \\ &\\
+      $gcd(g^m-1, N)$ & $gcd(m,N)$
+    \end{tabular}
+  \end{center}
+\end{table}
 
+\begin{itemize}
+\item If Pollard $p-1$ fails, we have no choice but to increase $B$. 
+\item However, ECM has a second option. We can choose another random elliptic curve. 
+\end{itemize}
 \end{frame}
 
 \begin{frame}
