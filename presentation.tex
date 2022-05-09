@@ -1,18 +1,20 @@
 \documentclass{beamer}
 \usepackage{graphicx}
 %Information to be included in the title page:
-\title{Sample title}
+\title{Lenstra Elliptic Curve Factorization}
 \author{Anonymous}
-\institute{Overleaf}
+\institute{MATH 317}
 \date{2021}
 
 \begin{document}
 
 \frame{\titlepage}
 
+
 \begin{frame}
 \frametitle{Background 1-2 min}
 
+\center
 \includegraphics[scale = .5]{lenstra.jpeg}
 
 \begin{itemize}
@@ -23,6 +25,44 @@
 \item ECM is third-fastest known factoring algorithm and the best algorithm for finding divisors not exceeding 50-60 digits.
 
 \item The largest factor found using ECM has 83 digits.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Why Pollard $p-1$ Works.}
+$\textbf{Lemma 2.2.5}$ Suppose that $m$, $n \in \mathbb{N}$ and gcd$(a,n) = 1$. Then the map
+$$
+    \psi : \left( \mathbb{Z}/mn\mathbb{Z} \right)^* \rightarrow \left( \mathbb{Z}/m\mathbb{Z} \right)^* \times \left( \mathbb{Z}/n\mathbb{Z} \right)^* 
+$$
+defined by 
+$$
+    \psi(c) = (c \pmod{m}, c\pmod{n})
+$$
+is a bijection.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Example by hand 2 mins}
+
+\begin{itemize}
+\item Let $B_i = \text{lcm}(1,\ldots, i)$.
+\end{itemize}
+
+\center
+\begin{tabular}{c|c|c}
+
+$B_i$ & $2^i \pmod{1763} $& $(2^i \pmod{41}, 2^i \pmod{43})$ \\
+\hline 
+1 & 2 & (2,  2) \\
+2 & 4 &  (4, 4 )\\
+6 &570 & (37, 11) \\
+60 & 575 & (1, 16)
+\end{tabular}
+
+\begin{itemize}
+\item We compute $gcd(574, 1763) = 41$
 \end{itemize}
 \end{frame}
 
@@ -51,7 +91,7 @@ then $n$ is $B$-power smooth if $p_i^{e_i} \leq B$ for all $i$.
 \begin{itemize}
 \item Fix $B \in \mathbb{N}$. Let $p \in \mathbb{N}$ such that $p-1$ is not $B$- power smooth. 
 
-\item Recall, in Pollard $p-1$, this would be equivalent to not having $p-1 \vert m = \text{lcm}(1,2, \ldots, B)$; i.e. $a^m \not \equiv 1 \pmod{p}$.
+\item Recall, in Pollard $p-1$, this would be equivalent to not having $p-1 \not \vert m = \text{lcm}(1,2, \ldots, B)$; i.e. $a^m \not \equiv 1 \pmod{p}$.
 
 \item On the interval $[10^{15}, 10^{15} + 10000]$ 15 percent of the primes $p$ are such that $p-1$ is not $10^{6}$-power smooth. 
 
@@ -67,7 +107,7 @@ Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be posit
 \begin{itemize}
 \item[1.] Compute $m =$ lcm$(1,2,\ldots, B)$. 
 \item[2.] Choose $a \in \mathbb{Z}/N\mathbb{Z}$ such that $4a^3 + 27 \in \left(\mathbb{Z}/N\mathbb{Z}\right)^*$. This forces $P = (0,1)$ to be a point on $y^2 = x^3 + ax +1$ over $\mathbb{Z}/N\mathbb{Z}$. 
-\item[3.] Try to compute $mP$. If at somepoint we cannot compute a sum of points some denominator $g$ is not coprime to $N$, then $gcd(g,N)$ is a nontrivial divisor of $N$.
+\item[3.] Try to compute $mP$. If at somepoint we cannot compute a sum of points, then some denominator $g$ is not coprime to $N$, then $gcd(g,N)$ is a nontrivial divisor of $N$.
 \end{itemize}
 \end{frame}
 
@@ -94,14 +134,41 @@ Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be posit
 \end{itemize}
 \end{frame}
 
-\begin{frame}
-\frametitle{Why it works 1-2 mins}
 
+\begin{frame}
+\frametitle{Why ECM "Works"}
+We can consider an analogous mapping 
+$$
+	"g: E(\mathbb{Z}/N\mathbb{Z}) \rightarrow \prod E(\mathbb{Z}/p\mathbb{Z})"
+$$
+where $p$ are prime divisors of $N$. 
+
+\begin{itemize}
+\item Note the quotations. There is a subtly in the difference between $E(\mathbb{Z}/N\mathbb{Z})$ and $\mathbb{Z}/N\mathbb{Z}$. 
+\item  Let $P = (0:1:1) \in E(\mathbb{Z}/1763\mathbb{Z}$ $P_1 = (0:1:1) \in E(\mathbb{Z}/41\mathbb{Z})$ and $P_2 = (0:1:1) \in E(\mathbb{Z}/43\mathbb{Z})$
+\end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Example by hand 2 mins}
-
+\frametitle{Example}
+\begin{tabular}{l|l|l|l}
+i & $i*P_1$ & $i*P_2$ & $i*P$ \\
+\hline
+0 & (0 : 1 : 1) & (0 : 1 : 1) & (0 : 1 : 1)\\
+1 & (1 : 39 : 1)& (1 : 41 : 1) & (1 : 1761 : 1) \\
+2 & (8 : 23 : 1)& (8 : 23 : 1) & (8 : 23 : 1) \\
+3 &(38 : 38 : 1)& (13 : 17 : 1) & (1432 : 1350 : 1) \\
+4 &(23 : 23 : 1) & (2 : 23 : 1) & (1335 : 23 : 1) \\
+5 &(20 : 28 : 1) & (33 : 23 : 1) & (635 : 1012 : 1) \\
+6 &(26 : 9 : 1) & (20 : 0 : 1) & (149 : 1075 : 1) \\
+7& (10 : 18 : 1) &(33 : 20 : 1) & (420 : 1740 : 1) \\
+8& (22 : 19 : 1) &(2 : 20 : 1) & (432 : 880 : 1)\\
+9 &(40 : 11 : 1) &(13 : 26 : 1) & (1475 : 585 : 1)\\
+10 &(19 : 25 : 1) &(8 : 20 : 1) & (1126 : 1009 : 1)\\
+11& (32 : 19 : 1)& (1 : 2 : 1) & (1549 : 1249 : 1) \\
+12& (13 : 25 : 1)& (0 : 42 : 1) & gcd(denom,$N$) = 43 \\
+13 &(12 : 21 : 1) &(0 : 1 : 0) &
+\end{tabular}
 \end{frame}
 
 \begin{frame}
