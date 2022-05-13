@@ -40,7 +40,7 @@
 
 \begin{frame}
 \frametitle{Background}
-\pause
+
 
 \center
 \includegraphics[scale = .5]{lenstra.jpeg}
@@ -57,9 +57,27 @@
 \end{frame}
 
 \begin{frame}
-\frametitle{Why Pollard $p-1$ Works.}
-\pause
-$\textbf{Lemma 2.2.5}$ Suppose that $m$, $n \in \mathbb{N}$ and gcd$(a,n) = 1$. Then the map
+\frametitle{Group Theory behind Pollard $p-1$}
+
+\uncover<2->{$\textbf{Definition}$ Let $(G,+)$ be a group. If $H \subset G$ is also a group under $+$, then we call $H$ a subgroup of $G$. }
+
+\uncover<3->{$\textbf{Lagrange's Theorem}$ If $H \subset G$ with $\vert G \vert < \infty$, then $\vert H\vert$ divides $\vert G \vert$. }
+
+\begin{itemize}
+\item<4-> Define the relation $a \sim b$ whenever $a = bh$ for some $h \in H$. 
+\item<5-> Let $S$ be an equivalence class of $\sim$ and pick an arbitrary $a \in S$.
+\item<6-> Define $f: S \rightarrow H$, where $f(b) = b^{-1}a$ and $g:H \rightarrow S$ by $g(h) = ah^{-1}$
+\item<7-> Observe $f$ and $g$ are inverses.
+$$f(g(h)) = f(ah^{-1}) = (ah^{-1})^{-1}a = h$$
+$$g(f(b)) = g(b^{-1}a) = a(b^{-1}a)^{-1} = b$$
+\item<7-> Thus, $\vert S \vert = \vert H \vert$ for all equivalence classes $S$.
+\item<8-> Therefore, $\vert G \vert = n \vert H \vert$. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{A different perspective} 
+\uncover<2->{$\textbf{Lemma 2.2.5}$ Suppose that $m$, $n \in \mathbb{N}$ and gcd$(m,n) = 1$. Then the map
 $$
     \psi : \left( \mathbb{Z}/mn\mathbb{Z} \right)^* \rightarrow \left( \mathbb{Z}/m\mathbb{Z} \right)^* \times \left( \mathbb{Z}/n\mathbb{Z} \right)^*
 $$
@@ -67,14 +85,13 @@ defined by
 $$
     \psi(c) = (c \pmod{m}, c\pmod{n})
 $$
-is a bijection.
-
+is a bijection.}
 \end{frame}
 
 
 \begin{frame}
 \frametitle{Example}
-\pause
+
 \begin{itemize}
 \item <2-> Let $B_i = \text{lcm}(1,\ldots, i)$.
 \end{itemize}
@@ -89,15 +106,15 @@ is a bijection.
 \uncover<6->{60} & \uncover<6->{575} & \uncover<6->{(1, 16)}
 \end{tabular}
 
-\pause
+
 \begin{itemize}
 \item<6-> We compute $gcd(574, 1763) = 41$
 \end{itemize}
 \end{frame}
 
 \begin{frame}
-\frametitle{Preliminaries}
-\pause
+\frametitle{Set up for ECM}
+
 \begin{itemize}
 \item<2-> Let $E$ be an elliptic curve over $\mathbb{Z}/N\mathbb{Z}$ of the form
 $$
@@ -117,7 +134,7 @@ then $n$ is $B$-power smooth if $p_i^{e_i} \leq B$ for all $i$.
 
 \begin{frame}
 \frametitle{Motivation}
-\pause
+
 % Explain why p-1 not being B power smooth for a fixed B is a problem
 \begin{itemize}
 \item<2-> Fix $B \in \mathbb{N}$. Let $p \in \mathbb{N}$ such that $p-1$ is not $B$- power smooth.
@@ -134,7 +151,7 @@ then $n$ is $B$-power smooth if $p_i^{e_i} \leq B$ for all $i$.
 
 \begin{frame}
 \frametitle{Elliptic Curve Factorization}
-\pause
+
 Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be positive integers.
 \begin{itemize}
 \item[1.]<2-> Compute $m =$ lcm$(1,2,\ldots, B)$.
@@ -169,7 +186,7 @@ Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be posit
 
 \begin{frame}
 \frametitle{Why ECM "Works"}
-\pause
+
 \uncover<2->{We can consider an analogous mapping
 $$
 	"g: E(\mathbb{Z}/N\mathbb{Z}) \rightarrow \prod_{p\vert N} E(\mathbb{Z}/p\mathbb{Z})"
@@ -277,7 +294,7 @@ then
 \end{frame}
 
 \begin{frame}
-\frametitle{Animation 1 min}
+\frametitle{Animation}
 
 \end{frame}
 
