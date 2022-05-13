@@ -251,7 +251,9 @@ where $r = \text{max} \{ r \in \mathbb{Z} \mid p^r \leq B \}$.
     A very bad way to compute $mP$.
 \end{center}
 
-There are many algorithms for computing general elliptic curve point multiplication efficiently, but given the very specific make-up of $m$, we can save time by being thoughtful here.
+There are many algorithms for computing general elliptic curve point
+multiplication efficiently, and given the known make-up of $m$, we can
+save time by being thoughtful here.
 
 Consider,
 
@@ -277,7 +279,36 @@ then
 \end{frame}
 
 \begin{frame}
-\frametitle{Animation 1 min}
+\frametitle{Complexity analysis}
+
+Given $B$ and $E$, how long does it take to compute $mP$? (handwaving inbound)
+
+\pause
+
+\begin{itemize}[<+->]
+	\item Sieve all primes less than $B \implies O(B \log \log B)$ \\
+	\item Elliptic curve point multiplication is $O(k)$ where $k$ is the number of
+		bits (double-and-add). \\
+	\item $LCM(1,2,3,...,B) \approx e^B$.
+	\item This implies computing $mP$ given $m$ is $O\left(\frac{B}{\log 2}\right)$.
+	\item Therefore, computing $mP$ should take roughly $O(B \log \log B)$ \\
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Complexity analysis}
+
+Ok, but what are the odds we find a curve that works in the first place?
+
+\pause
+
+\begin{itemize}[<+->]
+	\item Canfield-Erdös-Pomerance theorem tells us about the probability that a
+		random number $x < B$ is $B$ smooth. \\
+	\item Recall Hasse-Weil bound lets us limit the group by $2 \cdot \sqrt{p}$  \\
+	\item $O\left(e^{\sqrt{2\log(p) \log\left(\log(p)\right)}}\right)$
+\end{itemize}
 
 \end{frame}
 
