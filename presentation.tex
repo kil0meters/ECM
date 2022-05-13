@@ -150,17 +150,6 @@ then $n$ is $B$-power smooth if $p_i^{e_i} \leq B$ for all $i$.
 \end{frame}
 
 \begin{frame}
-\frametitle{Elliptic Curve Factorization}
-
-Algorithm 6.3.10 (Elliptic Curve Factorization Method). Let $N$ and $B$ be positive integers.
-\begin{itemize}
-\item[1.]<2-> Compute $m =$ lcm$(1,2,\ldots, B)$.
-\item[2.]<3-> Choose $a \in \mathbb{Z}/N\mathbb{Z}$ such that $4a^3 + 27 \in \left(\mathbb{Z}/N\mathbb{Z}\right)^*$. This forces $P = (0,1)$ to be a point on $y^2 = x^3 + ax +1$ over $\mathbb{Z}/N\mathbb{Z}$.
-\item[3.]<4-> Try to compute $mP$. If at some point we cannot compute a sum of points, then some denominator $g$ is not coprime to $N$, then $gcd(g,N)$ is a nontrivial divisor of $N$.
-\end{itemize}
-\end{frame}
-
-\begin{frame}
 \frametitle{Analogy to Pollard $p-1$}
 \begin{table}[h!]
   \begin{center}
@@ -267,11 +256,6 @@ then
 \frametitle{Coded Example}
 
 \lstinputlisting[language=Python]{ecm.sage}
-
-\end{frame}
-
-\begin{frame}
-\frametitle{Animation}
 
 \end{frame}
 
