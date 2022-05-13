@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 MAY 2022 10:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019) (preloaded format=pdflatex 2019.5.8)  13 MAY 2022 13:30
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -997,43 +997,33 @@ thkerncmss.
 
 ] [44
 
-] [45
-
-] [46
-
-] [47
-
-] [48
-
 ]
-<graphs/lcm_comparison.pdf, id=715, 578.16pt x 433.62pt>
+<graphs/lcm_comparison.pdf, id=683, 578.16pt x 433.62pt>
 File: graphs/lcm_comparison.pdf Graphic file (type pdf)
 <use graphs/lcm_comparison.pdf>
-Package pdftex.def Info: graphs/lcm_comparison.pdf  used on input line 238.
+Package pdftex.def Info: graphs/lcm_comparison.pdf  used on input line 227.
 (pdftex.def)             Requested size: 307.28987pt x 230.46591pt.
- [49
+ [45
 
- <./graphs/lcm_comparison.pdf>] [50
+ <./graphs/lcm_comparison.pdf>] [46
 
 ]
-<graphs/ecm_perf.pdf, id=739, 578.16pt x 433.62pt>
+<graphs/ecm_perf.pdf, id=706, 578.16pt x 433.62pt>
 File: graphs/ecm_perf.pdf Graphic file (type pdf)
 <use graphs/ecm_perf.pdf>
-Package pdftex.def Info: graphs/ecm_perf.pdf  used on input line 264.
+Package pdftex.def Info: graphs/ecm_perf.pdf  used on input line 253.
 (pdftex.def)             Requested size: 307.28987pt x 230.46591pt.
- [51
+ [47
 
  <./graphs/ecm_perf.pdf>]
 (/usr/local/texlive/2019/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2019/02/27 1.8b listings language file
 )
 (./ecm.sage)
-Overfull \vbox (8.05968pt too high) detected at line 271
+Overfull \vbox (8.05968pt too high) detected at line 260
  []
 
-[52
-
-] [53
+[48
 
 ]
 \tf@nav=\write6
@@ -1045,23 +1035,23 @@ Overfull \vbox (8.05968pt too high) detected at line 271
 \tf@snm=\write8
 \openout8 = `presentation.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 278.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 278.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 262.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 262.
  (./presentation.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 278.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 278.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 262.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 262.
 Package rerunfilecheck Info: File `presentation.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 19256 strings out of 492616
- 358685 string characters out of 6129482
- 751297 words of memory out of 5000000
- 22638 multiletter control sequences out of 15000+600000
+ 19242 strings out of 492616
+ 358558 string characters out of 6129482
+ 751213 words of memory out of 5000000
+ 22634 multiletter control sequences out of 15000+600000
  17651 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  56i,15n,59p,819b,1419s stack positions out of 5000i,500n,10000p,200000b,80000s
-pdfTeX warning (dest): name{Navigation69} has been referenced but does not ex
+pdfTeX warning (dest): name{Navigation49} has been referenced but does not ex
 ist, replaced by a fixed one
 
 </usr/local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><
@@ -1077,10 +1067,10 @@ local/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/l
 ocal/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/loc
 al/texlive/2019/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local
 /texlive/2019/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on presentation.pdf (53 pages, 273941 bytes).
+Output written on presentation.pdf (48 pages, 265736 bytes).
 PDF statistics:
- 838 PDF objects out of 1000 (max. 8388607)
- 556 compressed objects within 6 object streams
- 109 named destinations out of 1000 (max. 500000)
- 1234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 794 PDF objects out of 1000 (max. 8388607)
+ 522 compressed objects within 6 object streams
+ 99 named destinations out of 1000 (max. 500000)
+ 1204 words of extra memory for PDF output out of 10000 (max. 10000000)
 
